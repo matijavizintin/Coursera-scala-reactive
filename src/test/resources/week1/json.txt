@@ -1,0 +1,12 @@
+{"firstName" : "Jonh",
+ "lastName" : "Smith",
+ "address" : {
+    "streetAddress" : "21 2nd street",
+    "state" : "NY",
+    "postalCode" : 10021
+ },
+ "phoneNumbers" : [
+    {"type" : "home", "number" : "123 444-5678"},
+    {"type" : "fax", "number" : "987 777-3456"}
+ ]
+}
