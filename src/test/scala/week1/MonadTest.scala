@@ -4,16 +4,16 @@ import org.scalatest.FunSuite
 import week1.monad.{Success, Try}
 
 /**
- * Created by Matija Vižintin
- * Date: 20. 10. 2015
- * Time: 21:53
- */
+  * Created by Matija Vižintin
+  * Date: 20. 10. 2015
+  * Time: 21:53
+  */
 class MonadTest extends FunSuite {
     test("simple test") {
         val xs = for {
             x <- computeX
             y <- computeY
-        } yield (x,y)
+        } yield (x, y)
 
         println(xs)
     }

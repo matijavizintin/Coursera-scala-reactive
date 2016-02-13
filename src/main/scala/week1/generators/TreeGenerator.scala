@@ -1,10 +1,10 @@
 package week1.generators
 
 /**
- * Created by Matija Vižintin
- * Date: 15. 10. 2015
- * Time: 20:53
- */
+  * Created by Matija Vižintin
+  * Date: 15. 10. 2015
+  * Time: 20:53
+  */
 object TreeGenerator {
 
     def leafs: Generator[Leaf] = for (int <- Generators.intGenerator) yield Leaf(int)

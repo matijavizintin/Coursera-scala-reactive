@@ -1,10 +1,10 @@
 package week1.json
 
 /**
- * Created by Matija Vižintin
- * Date: 14. 10. 2015
- * Time: 18:48
- */
+  * Created by Matija Vižintin
+  * Date: 14. 10. 2015
+  * Time: 18:48
+  */
 abstract class JSON {
 
 }

@@ -1,10 +1,10 @@
 package week1.json
 
 /**
- * Created by Matija Vižintin
- * Date: 14. 10. 2015
- * Time: 19:01
- */
+  * Created by Matija Vižintin
+  * Date: 14. 10. 2015
+  * Time: 19:01
+  */
 object JSONPrinter {
 
     def print(json: JSON): String = json match {

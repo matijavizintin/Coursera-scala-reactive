@@ -1,10 +1,10 @@
 package week1.generators
 
 /**
- * Created by Matija Vižintin
- * Date: 15. 10. 2015
- * Time: 19:51
- */
+  * Created by Matija Vižintin
+  * Date: 15. 10. 2015
+  * Time: 19:51
+  */
 trait Generator[+T] {
     parent =>
 

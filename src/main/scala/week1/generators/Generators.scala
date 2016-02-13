@@ -3,20 +3,20 @@ package week1.generators
 import java.util.Random
 
 /**
- * Created by Matija Vižintin
- * Date: 15. 10. 2015
- * Time: 19:55
- */
+  * Created by Matija Vižintin
+  * Date: 15. 10. 2015
+  * Time: 19:55
+  */
 object Generators {
     lazy val intGenerator = IntGenerator
     lazy val booleanGenerator = BooleanGenerator
     lazy val pairsGenerator = PairsGenerator
 
     // getters
-//    def getIntGenerator = intGenerator
-//    def getBooleanGenerator = booleanGenerator
-//    def getBooleanGenerator2 = booleanGenerator2
-//    def getPairsGenerator = pairsGenerator
+    //    def getIntGenerator = intGenerator
+    //    def getBooleanGenerator = booleanGenerator
+    //    def getBooleanGenerator2 = booleanGenerator2
+    //    def getPairsGenerator = pairsGenerator
 
     // generators
     case object IntGenerator extends Generator[Int] {

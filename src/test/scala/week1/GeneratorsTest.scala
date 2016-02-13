@@ -4,10 +4,10 @@ import org.scalacheck.Prop.{BooleanOperators, forAll}
 import org.scalacheck._
 
 /**
- * Created by Matija Vižintin
- * Date: 15. 10. 2015
- * Time: 21:42
- */
+  * Created by Matija Vižintin
+  * Date: 15. 10. 2015
+  * Time: 21:42
+  */
 object GeneratorsTest extends Properties("List") {
 
     property("size test 1") = forAll {
@@ -23,7 +23,7 @@ object GeneratorsTest extends Properties("List") {
     }
 
     // pick only negative values
-    property("better sqrt") = forAll{
+    property("better sqrt") = forAll {
         (d: Int) => (d < 0) ==> (math.sqrt(d * d) == d)
     }
 

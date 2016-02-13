@@ -3,10 +3,10 @@ package week1.monad
 import scala.util.control.NonFatal
 
 /**
- * Created by Matija Vižintin
- * Date: 20. 10. 2015
- * Time: 21:34
- */
+  * Created by Matija Vižintin
+  * Date: 20. 10. 2015
+  * Time: 21:34
+  */
 abstract class Try[+T] {
     def flatMap[U](f: T => Try[U]): Try[U] = this match {
         case Success(x) => try f(x) catch {
