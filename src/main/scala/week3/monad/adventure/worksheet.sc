@@ -1,24 +1,22 @@
-import week1.monad.{Failure, Success, Try}
-import week3.monad.adventure.{Adventure, Coin, Treasure}
+import week3.monad.adventure.{Adventure, SafeAdventure, Treasure}
 
-val adventure = new Adventure {
-    override def collectionCoins(): Try[List[Coin]] = Try(List(Coin(), Coin(), Coin()))
+import scala.util.{Failure, Success, Try}
 
-    override def buyTreasure(coins: List[Coin]): Try[Treasure] = Try(Treasure())
+val adventure = Adventure()
+val coins = adventure.collectCoins()
+adventure.buyTreasure(coins)
+
+val safeAdventure = SafeAdventure()
+val safeCoins = safeAdventure.collectCoins()
+val safeTreasure = safeCoins match {
+    case Success(cs) => safeAdventure.buyTreasure(cs)
+    case Failure(e) => Failure(e)
 }
 
-val coins: Try[List[Coin]] = adventure.collectionCoins()
+val safeTreasure2: Try[Treasure] = safeCoins.flatMap(cs => safeAdventure.buyTreasure(cs))
 
-val treasure: Try[Treasure] = coins match {
-    case Success(cs) => adventure.buyTreasure(cs)
-    case failure@Failure(e) => failure
-}
-
-val treasure2: Try[Treasure] = adventure.collectionCoins().flatMap(coins => {
-    adventure.buyTreasure(coins)
-})
-
-val treasure3: Try[Treasure] = for {
-    coins <- adventure.collectionCoins()
-    treasure <- adventure.buyTreasure(coins)
+val safeTreasure3 = for {
+    coins <- safeAdventure.collectCoins()
+    treasure <- safeAdventure.buyTreasure(coins)
 } yield treasure
+

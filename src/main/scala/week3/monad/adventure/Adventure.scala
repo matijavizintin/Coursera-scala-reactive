@@ -1,6 +1,5 @@
 package week3.monad.adventure
 
-import week1.monad.Try
 
 /**
   * Created by Matija Vižintin
@@ -8,12 +7,26 @@ import week1.monad.Try
   * Time: 20:01
   */
 trait Adventure {
-    def collectionCoins(): Try[List[Coin]]
+    import week3.extensions._
 
-    def buyTreasure(coins: List[Coin]): Try[Treasure]
+    val eatenByMonster: Boolean
+    val treasureCost: Int
+
+    def collectCoins(): List[Coin] = {
+        if (eatenByMonster) throw new GameOver("Eaten by a monster")
+        else List(Gold(), Gold(), Silver())
+    }
+
+    def buyTreasure(coins: List[Coin]): Treasure = {
+        if (coins.sumBy(x => x.value) < treasureCost) throw new GameOver("Nice try!")
+        Diamond()
+    }
 }
 
-case class Coin() {}
-
-case class Treasure() {}
+object Adventure {
+    def apply(): Adventure = new Adventure() {
+        override val eatenByMonster: Boolean = false
+        override val treasureCost: Int = 42
+    }
+}
 
