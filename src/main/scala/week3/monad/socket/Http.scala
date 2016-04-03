@@ -1,7 +1,7 @@
 package week3.monad.socket
 
 import scala.concurrent.ExecutionContext.Implicits.global
-import scala.concurrent.{ExecutionContext, Future}
+import scala.concurrent.Future
 
 /**
   * Created by Matija Vižintin
@@ -10,9 +10,8 @@ import scala.concurrent.{ExecutionContext, Future}
   */
 object Http {
     def apply(url: String, request: Request): Future[Response] = {
-        SecureSocket().sendTo(url, request.body).flatMap {
-            array => Future(Response(array))
-        }
+        // dummy, return request
+        Future(Response(request.body))
     }
 }
 
